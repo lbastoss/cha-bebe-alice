@@ -349,27 +349,20 @@
       /^https?:\/\//i.test(scriptUrl);
 
     if (!hasEndpoint) {
-      writeLocalRow(payload);
-      return { mode: "local" };
+      throw new Error(
+        "A URL do Google Apps Script não está configurada."
+      );
     }
 
-    try {
-      await fetch(scriptUrl, {
-        method: "POST",
-        mode: "no-cors",
-        keepalive: true,
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(payload),
-      });
+    await fetch(scriptUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(payload),
+    });
 
-      writeLocalRow(payload);
-      return { mode: "google-sheets" };
-    } catch (_) {
-      writeLocalRow(payload);
-      return { mode: "local-fallback", warning: true };
-    }
+    return {
+      mode: "google-sheets",
+    };
   }
 
 
@@ -562,7 +555,6 @@
 
       try {
         await sendPayload(finalPayload);
-        renderLocalTable();
         fillSuccessView(dialog, finalPayload);
         setView(dialog, "success");
 

@@ -506,16 +506,21 @@ h1 {
 }
 
 .mini-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
   padding: 11px 0;
   border-top: 1px solid var(--line);
   color: var(--muted);
 }
 
 .mini-list strong {
+  min-width: 0;
   color: var(--ink);
+  line-height: 1.35;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .site-index {
