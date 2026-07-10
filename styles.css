@@ -1,0 +1,1304 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #fffaf6;
+  --bg-2: #f3f8f1;
+  --ink: #2f3430;
+  --muted: #6f7770;
+  --accent: #d97d90;
+  --accent-2: #7ea884;
+  --accent-3: #e8ba62;
+  --surface: rgba(255, 255, 255, 0.78);
+  --line: rgba(47, 52, 48, 0.14);
+  --shadow: 0 18px 50px rgba(72, 84, 70, 0.14);
+  --radius: 8px;
+  --display: Georgia, "Times New Roman", serif;
+  --body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  letter-spacing: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  position: relative;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+/* Tema principal usado no Modelo 1: borboletas, rosa e fundo mais colorido. */
+.model-01 {
+  --bg: #fff7fb;
+  --bg-2: #fff0f6;
+  --ink: #332b32;
+  --muted: #776d76;
+  --accent: #d77f95;
+  --accent-2: #8c78c8;
+  --accent-3: #f0b35d;
+  --surface: rgba(255, 255, 255, 0.86);
+  background:
+    linear-gradient(120deg, rgba(255, 241, 247, 0.95), rgba(243, 246, 255, 0.78) 42%, rgba(255, 247, 228, 0.8)),
+    #fff7fb;
+}
+
+.butterfly-theme > :not(.butterfly-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+.model-02 {
+  --bg: #f8fbff;
+  --bg-2: #f0f7ec;
+  --ink: #29333a;
+  --muted: #667884;
+  --accent: #c96f86;
+  --accent-2: #5e9a8a;
+  --accent-3: #d9ae52;
+  --surface: rgba(255, 255, 255, 0.84);
+}
+
+.model-03 {
+  --bg: #fbfaf5;
+  --bg-2: #edf3ee;
+  --ink: #282d2a;
+  --muted: #68706a;
+  --accent: #b86e78;
+  --accent-2: #6f9378;
+  --accent-3: #d6a84f;
+  --surface: rgba(255, 255, 255, 0.9);
+  --display: "Trebuchet MS", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Barra fixa superior com navegação curta. */
+.topbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(1120px, calc(100% - 32px));
+  margin: 14px auto 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 10px 30px rgba(31, 38, 34, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-weight: 800;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  color: var(--accent-2);
+  font-family: var(--display);
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav a {
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background: rgba(126, 168, 132, 0.12);
+  color: var(--ink);
+}
+
+/* Área principal do convite. */
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 88svh;
+  padding: 118px 24px 58px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.model-01 .hero {
+  background:
+    linear-gradient(108deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 242, 248, 0.8) 36%, rgba(239, 244, 255, 0.78) 68%, rgba(255, 246, 224, 0.72) 100%),
+    linear-gradient(150deg, #fff5fb 0%, #fffaf6 45%, #edf7eb 100%);
+}
+
+.model-02 .hero {
+  background:
+    linear-gradient(rgba(248, 251, 255, 0.76), rgba(248, 251, 255, 0.82)),
+    radial-gradient(circle at 74% 18%, rgba(201, 111, 134, 0.22), transparent 30%),
+    linear-gradient(160deg, #e9f5ff 0%, #fff7fb 48%, #edf7ec 100%);
+}
+
+.model-03 .hero {
+  background:
+    linear-gradient(90deg, rgba(251, 250, 245, 0.94), rgba(251, 250, 245, 0.68)),
+    linear-gradient(135deg, #fbfaf5 0%, #eef5ee 52%, #fff3e0 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(transparent, var(--bg));
+  z-index: -1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.hero-copy {
+  max-width: 650px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.model-01 .eyebrow {
+  color: var(--accent-2);
+  font-size: clamp(1rem, 1.7vw, 1.26rem);
+}
+
+.model-01 .eyebrow::before {
+  width: 42px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+h1 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(4.3rem, 10vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+/* Mantém o nome Alice na mesma cor do botão principal. */
+.model-01 h1 {
+  color: var(--accent);
+  text-shadow: 0 12px 26px rgba(215, 127, 149, 0.14);
+}
+
+.model-03 h1 {
+  max-width: 12ch;
+  font-size: clamp(3.8rem, 9vw, 8rem);
+  font-weight: 900;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #475048;
+  font-size: clamp(1.08rem, 2vw, 1.34rem);
+  line-height: 1.62;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 850;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(217, 125, 144, 0.26);
+}
+
+.button.secondary {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+}
+
+.button.ghost {
+  background: transparent;
+  color: var(--muted);
+}
+
+.hero-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.hero-note span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+/* Ilustração principal ao lado do título. Ajustada para ficar maior e alinhada à direita do "Alice". */
+.hero-art {
+  position: absolute;
+  z-index: 1;
+  right: clamp(-130px, -4vw, 24px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: min(48vw, 520px);
+  min-width: 330px;
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+.model-01 .hero-art {
+  right: clamp(-20px, 4vw, 110px);
+  top: 48%;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: min(56vw, 700px);
+  min-width: 380px;
+}
+
+.model-02 .hero-art {
+  right: clamp(-120px, -3vw, 56px);
+  bottom: -10px;
+  width: min(52vw, 560px);
+}
+
+.model-03 .hero-art {
+  right: clamp(-80px, 2vw, 80px);
+  width: min(43vw, 500px);
+}
+
+.section {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.section.compact {
+  padding-top: 34px;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.section h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.section p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.detail-card,
+.count-card,
+.rsvp-card,
+.model-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 16px 44px rgba(38, 44, 38, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.detail-card {
+  min-height: 132px;
+  padding: 18px;
+}
+
+.detail-card strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.detail-card span {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 780;
+  line-height: 1.36;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.count-card {
+  min-height: 126px;
+  padding: 20px 14px;
+  text-align: center;
+}
+
+.count-card b {
+  display: block;
+  min-height: 54px;
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: clamp(2.3rem, 7vw, 4.5rem);
+  line-height: 1;
+}
+
+.count-card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.message-band {
+  position: relative;
+  margin: 18px 0 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(126, 168, 132, 0.15), rgba(217, 125, 144, 0.10), rgba(232, 186, 98, 0.13));
+}
+
+.message-band p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  line-height: 1.28;
+}
+
+.rsvp-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.rsvp-card {
+  padding: 22px;
+}
+
+.rsvp-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: 1.8rem;
+}
+
+.rsvp-card p {
+  margin-top: 0;
+}
+
+.mini-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.mini-list strong {
+  color: var(--ink);
+}
+
+.site-index {
+  min-height: 100svh;
+  padding: 72px 20px;
+  background: linear-gradient(135deg, #fff8ee, #f1f8ee 55%, #fff6fb);
+}
+
+.index-inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.index-title {
+  max-width: 780px;
+  margin-bottom: 32px;
+}
+
+.index-title h1 {
+  max-width: 12ch;
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.model-card {
+  display: grid;
+  min-height: 370px;
+  padding: 18px;
+  text-decoration: none;
+}
+
+.model-card:hover {
+  transform: translateY(-2px);
+}
+
+.model-card svg {
+  width: 100%;
+  height: 170px;
+}
+
+.model-card h2 {
+  margin: 16px 0 8px;
+  font-family: var(--display);
+  font-size: 1.65rem;
+}
+
+.model-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+dialog {
+  width: min(680px, calc(100% - 28px));
+  border: 0;
+  border-radius: var(--radius);
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+dialog::backdrop {
+  background: rgba(33, 38, 35, 0.42);
+  backdrop-filter: blur(5px);
+}
+
+.dialog-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fffdf9;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  background: linear-gradient(135deg, rgba(126, 168, 132, 0.16), rgba(217, 125, 144, 0.12));
+}
+
+.dialog-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 2rem;
+}
+
+.close-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1.3rem;
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 15px;
+  padding: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(47, 52, 48, 0.18);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+}
+
+.field textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(126, 168, 132, 0.16);
+}
+
+.total-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(126, 168, 132, 0.25);
+  border-radius: var(--radius);
+  background: rgba(126, 168, 132, 0.09);
+  font-weight: 850;
+}
+
+.total-pill b {
+  color: var(--accent);
+  font-size: 1.45rem;
+}
+
+.form-status {
+  min-height: 24px;
+  color: var(--accent-2);
+  font-weight: 800;
+}
+
+.host-panel {
+  margin-top: 18px;
+  border: 1px dashed rgba(47, 52, 48, 0.22);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.host-panel summary {
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: 850;
+}
+
+.host-panel .panel-body {
+  padding: 0 16px 16px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.local-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.local-table th,
+.local-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.local-table th {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer {
+  padding: 36px 16px 46px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.sheep-svg .wool {
+  fill: #ffffff;
+}
+
+.sheep-svg .face {
+  fill: #ddd6cb;
+}
+
+.sheep-svg .line {
+  stroke: #40463f;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.sheep-svg .soft {
+  fill: var(--accent);
+  opacity: 0.2;
+}
+
+.floral {
+  fill: var(--accent);
+}
+
+.leaf {
+  fill: var(--accent-2);
+}
+
+/* Camada fixa das borboletas voando no fundo da página. */
+.butterfly-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.butterfly-fly {
+  position: absolute;
+  top: var(--top);
+  left: -14vw;
+  width: var(--size);
+  height: var(--size);
+  color: var(--color);
+  opacity: 0.42;
+  filter: drop-shadow(0 6px 10px rgba(130, 82, 120, 0.12));
+  animation: butterfly-flight var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.butterfly-fly::before,
+.butterfly-fly::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  width: 58%;
+  height: 76%;
+  border-radius: 70% 38% 72% 42%;
+  background: currentColor;
+  transform-origin: 100% 50%;
+  animation: wing-flutter 760ms ease-in-out infinite alternate;
+}
+
+.butterfly-fly::before {
+  left: 0;
+  transform: rotate(-24deg) scaleX(0.82);
+}
+
+.butterfly-fly::after {
+  right: 0;
+  transform: rotate(24deg) scaleX(0.82);
+  transform-origin: 0 50%;
+}
+
+/* Ilustração principal de borboleta no topo do convite. */
+.butterfly-svg .garden-sweep {
+  fill: rgba(215, 127, 149, 0.16);
+}
+
+.butterfly-svg .wing {
+  stroke: rgba(75, 54, 72, 0.16);
+  stroke-width: 3;
+}
+
+.butterfly-svg .wing-left-top,
+.butterfly-svg .wing-right-top {
+  fill: #f6b5c7;
+}
+
+.butterfly-svg .wing-left-bottom,
+.butterfly-svg .wing-right-bottom {
+  fill: #f7d4df;
+}
+
+.butterfly-svg .wing-mark {
+  fill: rgba(255, 255, 255, 0.58);
+}
+
+.butterfly-svg .body,
+.butterfly-svg .head {
+  fill: #6b5368;
+}
+
+.butterfly-svg .antenna {
+  stroke: #6b5368;
+  stroke-width: 5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.butterfly-svg .dot {
+  fill: #f0b35d;
+  opacity: 0.82;
+}
+
+.butterfly-svg .mini-wing {
+  fill: #d77f95;
+  opacity: 0.8;
+}
+
+.butterfly-svg .mini-butterfly.alt .mini-wing {
+  fill: #8c78c8;
+}
+
+.butterfly-svg .mini-body {
+  stroke: #6b5368;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.butterfly-svg .main-butterfly {
+  animation: gentle-float 5.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Seção com 3 espaços preparados para receber fotos depois. */
+.photo-section {
+  padding-top: 30px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.photo-slot {
+  position: relative;
+  min-height: 290px;
+  aspect-ratio: 4 / 5;
+  border: 1px dashed rgba(215, 127, 149, 0.42);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 244, 249, 0.72)),
+    #fff;
+  box-shadow: 0 16px 44px rgba(91, 63, 87, 0.08);
+  overflow: hidden;
+}
+
+.photo-slot::before {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 38px;
+  height: 32px;
+  background:
+    radial-gradient(ellipse at 32% 42%, rgba(215, 127, 149, 0.28) 0 42%, transparent 45%),
+    radial-gradient(ellipse at 68% 42%, rgba(140, 120, 200, 0.26) 0 42%, transparent 45%);
+}
+
+.photo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Movimento horizontal leve das borboletas de fundo. */
+@keyframes butterfly-flight {
+  0% {
+    transform: translate3d(-12vw, 0, 0) rotate(-9deg);
+  }
+
+  45% {
+    transform: translate3d(52vw, var(--mid-y), 0) rotate(8deg);
+  }
+
+  100% {
+    transform: translate3d(114vw, var(--end-y), 0) rotate(-5deg);
+  }
+}
+
+@keyframes wing-flutter {
+  from {
+    scale: 0.92 1;
+  }
+
+  to {
+    scale: 1.16 1;
+  }
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -1deg;
+  }
+
+  50% {
+    translate: 0 -12px;
+    rotate: 2deg;
+  }
+}
+
+.butterfly-image {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Respeita usuários que preferem reduzir animações no sistema. */
+@media (prefers-reduced-motion: reduce) {
+  .butterfly-fly,
+  .butterfly-fly::before,
+  .butterfly-fly::after,
+  .butterfly-svg .main-butterfly {
+    animation: none;
+  }
+}
+
+/* Ajustes para tablets e telas médias. */
+@media (max-width: 900px) {
+  .topbar {
+    width: calc(100% - 24px);
+  }
+
+  .nav a:not(.keep) {
+    display: none;
+  }
+
+  .hero {
+    min-height: 86svh;
+    padding: 104px 18px 42px;
+  }
+
+  .hero-copy {
+    max-width: 560px;
+  }
+
+  .hero-art {
+    right: -150px;
+    bottom: -54px;
+    top: auto;
+    transform: none;
+    width: 430px;
+    opacity: 0.42;
+  }
+
+  .model-01 .hero-art {
+    right: -60px;
+    top: -18px;
+    bottom: auto;
+    transform: none;
+    width: 320px;
+    opacity: 0.85;
+  }
+
+  .details-grid,
+  .countdown,
+  .rsvp-layout,
+  .model-grid,
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Ajustes para celular: borboleta menor, posicionada acima do título "Alice". */
+@media (max-width: 640px) {
+  .brand span:last-child {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 96px;
+  }
+
+  h1 {
+    font-size: clamp(3.8rem, 18vw, 5.4rem);
+  }
+
+  .lead {
+    font-size: 1.02rem;
+  }
+
+  .hero-actions,
+  .section-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-note span {
+    width: 100%;
+  }
+
+  .hero-art {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    transform: none;
+    width: min(60%, 220px);
+    min-width: 0;
+    margin: 0 auto -10px;
+    opacity: 0.9;
+  }
+
+  .model-01 .hero-art {
+    right: auto;
+    bottom: auto;
+    top: auto;
+    transform: none;
+    width: min(75%, 280px);
+    min-width: 0;
+    margin: 0 auto -6px;
+    opacity: 0.96;
+  }
+
+  .details-grid,
+  .countdown,
+  .rsvp-layout,
+  .model-grid,
+  .photo-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-slot {
+    min-height: 240px;
+    aspect-ratio: 1 / 1.12;
+  }
+
+  .section {
+    width: min(100% - 24px, 1120px);
+    padding: 46px 0;
+  }
+
+  .message-band {
+    padding: 20px;
+  }
+
+  .dialog-head,
+  .rsvp-form {
+    padding: 18px;
+  }
+
+  .site-index {
+    padding: 48px 14px;
+  }
+}
+
+/* ======================================================= */
+/* Ajustes do fluxo de RSVP: presente (fralda/mimo), tela de sucesso e campo anti-spam. */
+/* ======================================================= */
+
+[hidden] {
+  display: none !important;
+}
+
+.gift-choice {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.radio-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.32;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.radio-pill input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--accent);
+}
+
+.radio-pill span {
+  flex: 1;
+}
+
+.radio-pill.is-checked {
+  border-color: var(--accent);
+  background: rgba(217, 125, 144, 0.08);
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .gift-choice {
+    grid-template-columns: 1fr;
+  }
+}
+
+.diaper-suggestion {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px dashed rgba(140, 120, 200, 0.4);
+  border-radius: var(--radius);
+  background: rgba(140, 120, 200, 0.08);
+}
+
+.diaper-suggestion-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.diaper-suggestion strong {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  color: var(--accent-2);
+}
+
+/* Campo-armadilha (honeypot): invisível para pessoas, mas presente no HTML para confundir bots. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Tela de sucesso exibida após o envio do formulário. */
+.success-view {
+  display: grid;
+  gap: 16px;
+  padding: 26px 22px 22px;
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 2.7rem;
+  line-height: 1;
+}
+
+.success-view h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.9rem;
+}
+
+.success-view > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.success-details {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+  text-align: left;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-row span {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.detail-row strong {
+  color: var(--ink);
+  font-weight: 800;
+  text-align: right;
+}
+
+.success-followup {
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+/* Mensagem exibida quando a contagem regressiva chega a zero. */
+.countdown-done {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(217, 125, 144, 0.14), rgba(140, 120, 200, 0.1));
+  text-align: center;
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+@media (max-width: 640px) {
+  .success-view {
+    padding: 20px 16px 18px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .detail-row strong {
+    text-align: left;
+  }
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.button.is-confirming {
+  border-color: var(--accent);
+  background: rgba(217, 125, 144, 0.12);
+  color: var(--accent);
+}

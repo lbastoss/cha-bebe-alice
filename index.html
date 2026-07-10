@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chá de Bebê da Alice</title>
+  <meta name="description"
+    content="Convite para o chá de bebê da Alice, com confirmação de presença e contagem regressiva.">
+
+  <!-- Prévia bonita quando o link é compartilhado no WhatsApp/redes sociais. Troque a imagem por uma foto sua quando quiser. -->
+  <meta property="og:title" content="Chá de Bebê da Alice">
+  <meta property="og:description"
+    content="Confirme sua presença no chá de bebê da Alice! 15 de agosto de 2026, às 12h.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/Borboleta1.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="page model-01 butterfly-theme">
+    <div class="butterfly-layer" aria-hidden="true">
+      <span class="butterfly-fly"
+        style="--top: 12%; --size: 22px; --delay: -2s; --duration: 24s; --mid-y: 42px; --end-y: -20px; --color: #d77f95;"></span>
+      <span class="butterfly-fly"
+        style="--top: 30%; --size: 16px; --delay: -8s; --duration: 31s; --mid-y: -36px; --end-y: 24px; --color: #9b7bd3;"></span>
+      <span class="butterfly-fly"
+        style="--top: 52%; --size: 20px; --delay: -14s; --duration: 28s; --mid-y: 32px; --end-y: -34px; --color: #f0b35d;"></span>
+      <span class="butterfly-fly"
+        style="--top: 70%; --size: 14px; --delay: -20s; --duration: 34s; --mid-y: -28px; --end-y: 18px; --color: #7fa46f;"></span>
+      <span class="butterfly-fly"
+        style="--top: 84%; --size: 18px; --delay: -26s; --duration: 30s; --mid-y: 22px; --end-y: -28px; --color: #d77f95;"></span>
+    </div>
+
+    <header class="topbar" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Chá de bebê da Alice">
+        <span class="brand-mark">A</span>
+        <span>Chá da Alice</span>
+      </a>
+      <nav class="nav">
+        <a href="#detalhes">Detalhes</a>
+        <a href="#contador">Contagem</a>
+        <a class="keep" href="#confirmar">Confirmar</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+
+      <img class="hero-art butterfly-image" src="assets/Borboleta1.png"
+        alt="Ilustração de borboleta para o chá de bebê da Alice">
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Chá de bebê</p>
+          <h1>Alice</h1>
+          <p class="lead">Uma tarde carinhosa para celebrar a chegada da nossa pequena Alice, com família, amigos e o
+            tema de borboletas que deixa tudo mais leve, colorido e delicado.</p>
+          <div class="hero-actions">
+            <button class="button primary" type="button" data-open-rsvp>Confirmar presença</button>
+            <a class="button secondary" href="#detalhes">Ver detalhes</a>
+          </div>
+          <div class="hero-note" aria-label="Resumo do evento">
+            <span>15 de agosto de 2026</span>
+            <span>12h</span>
+            <span>Endereço a definir</span>
+            <span>Chá de fraldas 🍼</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="detalhes">
+      <div class="section-head">
+        <h2>Detalhes do encontro</h2>
+        <button class="button ghost" type="button" data-open-rsvp>Confirmar agora</button>
+      </div>
+      <div class="details-grid">
+        <article class="detail-card">
+          <strong>Data</strong>
+          <span>15/08/2026</span>
+        </article>
+        <article class="detail-card">
+          <strong>Horário</strong>
+          <span>12 horas</span>
+        </article>
+        <article class="detail-card">
+          <strong>Local</strong>
+          <span>Substituir pelo endereço do evento</span>
+        </article>
+        <article class="detail-card">
+          <strong>Tema</strong>
+          <span>Borboletas delicadas</span>
+        </article>
+      </div>
+      <div class="message-band">
+        <p>Esperamos você para dividir esse momento especial antes da Alice chegar.</p>
+      </div>
+    </section>
+
+    <section class="section photo-section" id="fotos">
+      <div class="section-head">
+        <h2>Nossa família</h2>
+        <p>Um cantinho para guardar um pouco desse caminho até a chegada da Alice.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-slot" aria-label="Espaço para foto 1"></div>
+        <div class="photo-slot" aria-label="Espaço para foto 2"></div>
+        <div class="photo-slot" aria-label="Espaço para foto 3"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contador">
+      <div class="section-head">
+        <h2>Falta pouco</h2>
+        <p>15 de agosto de 2026, às 12h.</p>
+      </div>
+      <div class="countdown" aria-label="Contagem regressiva para o evento" data-countdown-grid>
+        <div class="count-card"><b data-countdown="days">0</b><span>Dias</span></div>
+        <div class="count-card"><b data-countdown="hours">00</b><span>Horas</span></div>
+        <div class="count-card"><b data-countdown="minutes">00</b><span>Minutos</span></div>
+        <div class="count-card"><b data-countdown="seconds">00</b><span>Segundos</span></div>
+      </div>
+      <p class="countdown-done" data-countdown-done hidden>🎉 Hoje é o grande dia da Alice!</p>
+    </section>
+
+    <section class="section" id="confirmar">
+      <div class="rsvp-layout">
+        <article class="rsvp-card">
+          <h3>Confirme sua presença</h3>
+          <p>Informe se você vai ao chá e quantas pessoas irão com você. É um chá de fraldas: se puder, traga fraldas (a
+            gente sugere o tamanho que mais está fazendo falta) ou, se preferir, um mimo à sua escolha.</p>
+          <button class="button primary" type="button" data-open-rsvp>Responder convite</button>
+        </article>
+        <article class="rsvp-card">
+          <h3>Para a organização</h3>
+          <ul class="mini-list">
+            <li><span>Status</span><strong>Confirmado ou não vai</strong></li>
+            <li><span>Adultos</span><strong>Incluir acompanhante</strong></li>
+            <li><span>Crianças</span><strong>Quantidade separada</strong></li>
+            <li><span>Presente</span><strong>Fralda (tamanho sugerido) ou mimo</strong></li>
+          </ul>
+        </article>
+      </div>
+
+      <details class="host-panel">
+        <summary>Prévia local de respostas</summary>
+        <div class="panel-body">
+          <p>As respostas aparecem aqui apenas neste navegador enquanto a URL do Google Apps Script não estiver
+            configurada.</p>
+          <div class="panel-actions">
+            <button class="button secondary" type="button" data-export-local>Exportar CSV</button>
+            <button class="button ghost" type="button" data-clear-local>Limpar prévia local</button>
+          </div>
+          <div class="table-wrap">
+            <table class="local-table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>WhatsApp</th>
+                  <th>Status</th>
+                  <th>Adultos</th>
+                  <th>Crianças</th>
+                  <th>Total</th>
+                  <th>Presente</th>
+                  <th>Tamanho fralda</th>
+                  <th>Enviado em</th>
+                </tr>
+              </thead>
+              <tbody data-local-rsvps></tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <footer class="footer">
+      Com carinho, esperamos você no chá da Alice.
+    </footer>
+  </main>
+
+  <!-- Modal do formulário de confirmação de presença. -->
+  <dialog id="rsvpDialog">
+    <div class="dialog-card">
+      <div class="dialog-head">
+        <h2 data-dialog-title>Confirmação</h2>
+        <button class="close-button" type="button" data-close-rsvp aria-label="Fechar">×</button>
+      </div>
+
+      <!-- Tela 1: formulário -->
+      <form class="rsvp-form" id="rsvpForm" data-view="form">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="name">Nome completo</label>
+            <input id="name" name="name" type="text" autocomplete="name" minlength="3" maxlength="80"
+              pattern="[A-Za-zÀ-ÖØ-öø-ÿ'´\- ]+" title="Informe um nome válido, usando apenas letras." required>
+          </div>
+          <div class="field">
+            <label for="phone">WhatsApp</label>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel"
+              placeholder="(27) 99999-9999" maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}"
+              title="Informe o WhatsApp com DDD." required>
+          </div>
+          <div class="field">
+            <label for="status">Presença</label>
+            <select id="status" name="status">
+              <option value="confirmed">Confirmo presença</option>
+              <option value="declined">Não poderei ir</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="adults">Adultos no total</label>
+            <input id="adults" name="adults" type="number" min="1" max="20" value="1" data-attendance-count>
+          </div>
+          <div class="field">
+            <label for="children">Crianças</label>
+            <input id="children" name="children" type="number" min="0" max="20" value="0" data-attendance-count>
+          </div>
+
+          <div class="field full" data-gift-section>
+            <label>O que você vai trazer?</label>
+            <div class="gift-choice">
+              <label class="radio-pill" data-radio-pill>
+                <input type="radio" name="giftType" value="fralda" checked>
+                <span>Um pacote de fraldas</span>
+              </label>
+              <label class="radio-pill" data-radio-pill>
+                <input type="radio" name="giftType" value="mimo">
+                <span>Um mimo à minha escolha</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field full diaper-suggestion" data-diaper-suggestion>
+            <span class="diaper-suggestion-label">Tamanho que mais está fazendo falta agora</span>
+            <strong data-diaper-size-text>Calculando…</strong>
+            <input type="hidden" name="diaperSize" data-diaper-size-input value="">
+          </div>
+
+          <div class="field full">
+            <label for="notes">Observações</label>
+            <textarea id="notes" name="notes"
+              placeholder="Ex.: nome do acompanhante, restrição alimentar ou recado para a família"></textarea>
+          </div>
+
+          <!-- Campo-armadilha para bots: fica invisível para pessoas, some da tela via CSS. -->
+          <div class="field full hp-field" aria-hidden="true">
+            <label for="website">Não preencha este campo</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+        <div class="total-pill"><span>Total previsto</span><b data-total>1</b></div>
+        <div class="form-status" data-form-status aria-live="polite"></div>
+        <button class="button primary" type="submit">Enviar confirmação</button>
+      </form>
+
+      <!-- Tela 2: sucesso, mostrada depois do envio -->
+      <div class="success-view" data-view="success" hidden aria-live="polite">
+        <div class="success-icon" data-success-icon>🎉</div>
+        <h3 data-success-title>Presença confirmada!</h3>
+        <p data-success-message>Mal podemos esperar para te ver na festa da Alice.</p>
+
+        <div class="success-details" data-success-details>
+          <div class="detail-row">
+            <span>Data</span>
+            <strong>15 de agosto de 2026, às 12h</strong>
+          </div>
+          <div class="detail-row">
+            <span>Local</span>
+            <strong>Endereço a definir</strong>
+          </div>
+          <div class="detail-row" data-gift-row>
+            <span>O que trazer</span>
+            <strong data-gift-text>—</strong>
+          </div>
+        </div>
+
+        <p class="success-followup" data-success-followup>Em breve você recebe mais informações no seu WhatsApp. 💛</p>
+
+        <button class="button primary" type="button" data-close-rsvp>Fechar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Configuração principal: altere a data do evento e cole aqui a URL do Google Apps Script.
+    window.ALICE_RSVP_CONFIG = {
+      eventDate: "2026-08-15T12:00:00-03:00",
+      googleScriptUrl: "https://script.google.com/macros/s/AKfycbxiywjDePVjNTUJeXsEx3sITWPGGp0KV4sv6EWdooglN8n3fKdAC53jQ0vZG-bvaVNh/exec",
+      modelName: "Modelo 01 - Borboletas",
+      locationName: "Endereço a definir",
+      // Ordem usada apenas quando a planilha ainda não está configurada (prévia local).
+      diaperFallbackOrder: ["P", "M", "RN", "G", "XG"]
+    };
+  </script>
+  <script src="assets/alice-rsvp.js"></script>
+</body>
+
+</html>

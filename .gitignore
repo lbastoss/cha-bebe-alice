@@ -1,0 +1,21 @@
+# Arquivo do Google Apps Script
+codigo.gs
+
+# Planilha local
+controle-presenca-cha-alice.xlsx
+
+# Documentação interna opcional
+README-INTEGRACAO.md
+
+# Arquivos do macOS
+.DS_Store
+
+# Configurações locais do VS Code
+.vscode/
+
+# Dependências, caso use futuramente
+node_modules/
+
+# Variáveis de ambiente
+.env
+.env.*
