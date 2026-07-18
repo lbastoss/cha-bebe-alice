@@ -93,19 +93,6 @@
     });
   }
 
-  function readLocalRows() {
-    try {
-      return JSON.parse(localStorage.getItem(storageKey) || "[]");
-    } catch (_) {
-      return [];
-    }
-  }
-
-  function writeLocalRow(row) {
-    const rows = readLocalRows();
-    rows.unshift(row);
-    localStorage.setItem(storageKey, JSON.stringify(rows.slice(0, 250)));
-  }
 
   function statusLabel(value) {
     return {
@@ -354,15 +341,25 @@
       );
     }
 
-    await fetch(scriptUrl, {
+    const response = await fetch(scriptUrl, {
       method: "POST",
-      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload),
     });
 
-    return {
-      mode: "google-sheets",
-    };
+    if (!response.ok) {
+      throw new Error("O servidor respondeu com erro.");
+    }
+
+    const data = await response.json();
+
+    if (!data || !data.ok) {
+      throw new Error(
+        (data && data.error) || "Não foi possível confirmar."
+      );
+    }
+
+    return data;
   }
 
 
@@ -565,8 +562,9 @@
         if (childrenInput) childrenInput.value = "0";
         updateFormState(form);
         statusNode.textContent = "";
-      } catch (_) {
+      } catch (err) {
         statusNode.textContent =
+          (err && err.message) ||
           "Não foi possível enviar agora. Tente novamente em instantes.";
       } finally {
         submitButton.disabled = false;
@@ -580,13 +578,12 @@
     setCountdown();
     window.setInterval(setCountdown, 1000);
     setupDialog();
-    renderLocalTable();
 
     // Pré-carrega a sugestão enquanto a pessoa lê o convite.
     fetchDiaperSuggestion().catch(() => { });
 
     $$('[data-export-local]').forEach((button) => {
-      button.addEventListener("click", downloadCsv);
+      button.addEventListener("click");
     });
 
     $$('[data-clear-local]').forEach((button) => {
