@@ -1200,6 +1200,13 @@ dialog::backdrop {
   color: var(--accent-2);
 }
 
+.diaper-suggestion-brands {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 /* Campo-armadilha (honeypot): invisível para pessoas, mas presente no HTML para confundir bots. */
 .hp-field {
   position: absolute;
@@ -1263,6 +1270,20 @@ dialog::backdrop {
   text-align: right;
 }
 
+.gift-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.gift-brands {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+}
+
 .success-followup {
   font-weight: 700;
   color: var(--accent-2);
@@ -1293,6 +1314,13 @@ dialog::backdrop {
   .detail-row strong {
     text-align: left;
   }
+  .gift-answer {
+  align-items: flex-start;
+}
+
+.gift-brands {
+  text-align: left;
+}
 }
 
 .panel-actions {

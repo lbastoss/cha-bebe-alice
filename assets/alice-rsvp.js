@@ -266,8 +266,14 @@
       return false;
     }
 
+    const brandsNode = $("[data-diaper-brands-text]", form);
+
     if (textNode) {
-      textNode.textContent = `Sugerimos 1 pacote de fraldas tamanho ${suggestion.tamanho}`;
+      textNode.textContent = `Tamanho ${suggestion.tamanho}`;
+    }
+
+    if (brandsNode) {
+      brandsNode.textContent = "Se possível, preferência por Pampers, Huggies, BabySec ou MamyPoko";
     }
 
     if (hiddenInput) {
@@ -301,6 +307,8 @@
       if (textNode) textNode.textContent = "Consultando estoque…";
       if (hiddenInput) hiddenInput.value = "";
       box.dataset.origin = "consultando";
+      const brandsNode = $("[data-diaper-brands-text]", form);
+      if (brandsNode) brandsNode.textContent = "";
     }
 
     const suggestion = await fetchDiaperSuggestion(options);
@@ -393,14 +401,24 @@
         : "Mal podemos esperar para te ver na festa da Alice.";
     }
 
+    const giftBrands = $("[data-gift-brands-text]", dialog);
+
     if (giftRow && giftText) {
       if (declined || !payload.presente) {
         giftRow.hidden = true;
       } else {
         giftRow.hidden = false;
-        giftText.textContent = payload.tamanhoFralda
-          ? `1 pacote de fraldas tamanho ${payload.tamanhoFralda}`
-          : payload.presente;
+
+        if (payload.tamanhoFralda) {
+          giftText.textContent = `Fralda tamanho ${payload.tamanhoFralda}`;
+          if (giftBrands) {
+            giftBrands.textContent =
+              "Preferência: Pampers, Huggies, BabySec ou MamyPoko";
+          }
+        } else {
+          giftText.textContent = payload.presente;
+          if (giftBrands) giftBrands.textContent = "";
+        }
       }
     }
 
